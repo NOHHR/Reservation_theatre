@@ -33,15 +33,12 @@ namespace Reservation_theatre
 
             int continuer = 1;
 
+            // Boucle permettant plusieurs saisies
             do
             {
-
-
-                Console.WriteLine();
-                Console.WriteLine("\nBienvenue au thêatre Simlpon. \n");
+                Accueil();
 
                 // Affichage de la salle
-
                 // Parcours des lignes du tableau
                 for (int i = 0; i < rangMax; i++)
                 {
@@ -72,5 +69,15 @@ namespace Reservation_theatre
             } while (continuer == 1);
 
         }
+
+        // Methode Accueil et refresh console
+        static void Accueil()
+        {
+            Console.Clear();
+            Console.WriteLine();
+            Console.WriteLine("\nBienvenue au thêatre Simlpon. \n");
+
+        }
+
     }
 }
