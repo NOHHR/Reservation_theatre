@@ -99,21 +99,21 @@ namespace Reservation_theatre
         // Reserver une place
         static void Reservation()
         {
-            Console.WriteLine("\nQuelle place souhaitez-vous reserver\n");
+            Console.WriteLine("\nQuelle place souhaitez-vous reserver");
 
             // Choix du rang
-            Console.WriteLine("\nSaisissez le rang (de 0 à 7) : \n");
+            Console.WriteLine("\nSaisissez le rang (de 0 à 7) : ");
             int rang = Convert.ToInt16(Console.ReadLine());
 
             // Choix de la place
-            Console.WriteLine("\nSaisissez la place (de 0 à 8) : \n");
+            Console.WriteLine("\nSaisissez la place (de 0 à 8) : ");
             int place = Convert.ToInt16(Console.ReadLine());
 
             if (salle[rang, place] != 1)
             {
                 // modif status place reservée
                 salle[rang, place] = 1;
-                
+                Accueil();
             }
             else
             {
