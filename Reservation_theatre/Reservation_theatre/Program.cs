@@ -27,21 +27,19 @@ namespace Reservation_theatre
         static int rangMax = 8;
         static int placeMax = 9;
         static int[,] salle = new int[rangMax, placeMax];
+        static int continuer = 1;
 
         static void Main(string[] args)
         {
 
-            int continuer = 1;
 
             // Boucle permettant plusieurs saisies
             do
             {
                 Accueil();
                 AffichageSalle();
+                Poursuivre();
 
-
-                Console.WriteLine("\n1 - Continuer \n\n2 - Finir \n");
-                continuer = Convert.ToInt16(Console.ReadLine());
 
             } while (continuer == 1);
 
@@ -80,8 +78,17 @@ namespace Reservation_theatre
                     Console.Write(status_aff);
                 }
                 Console.WriteLine();
-                
+
             }
+
+        }
+
+        // Répétition du programme
+        static void Poursuivre()
+        {
+            // Affichage pousuite saisie
+            Console.WriteLine("\n1 - Continuer \n\n2 - Finir \n");
+            continuer = Convert.ToInt16(Console.ReadLine());
 
         }
     }
