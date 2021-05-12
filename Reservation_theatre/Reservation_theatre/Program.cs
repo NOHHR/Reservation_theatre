@@ -22,6 +22,12 @@ namespace Reservation_theatre
 {
     class Program
     {
+        // Création d'un tableau d'entiers à deux dimensions (8 rangées et 9 places) rangMax et placeMax pour définir les dimensions du tableau
+
+        static int rangMax = 8;
+        static int placeMax = 9;
+        static int[,] salle = new int[rangMax, placeMax];
+
         static void Main(string[] args)
         {
 
