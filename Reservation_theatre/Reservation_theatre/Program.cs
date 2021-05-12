@@ -31,8 +31,45 @@ namespace Reservation_theatre
         static void Main(string[] args)
         {
 
-            Console.WriteLine();
-            Console.WriteLine("\nBienvenue au thêatre Simlpon. \n");
+            int continuer = 1;
+
+            do
+            {
+
+
+                Console.WriteLine();
+                Console.WriteLine("\nBienvenue au thêatre Simlpon. \n");
+
+                // Affichage de la salle
+
+                // Parcours des lignes du tableau
+                for (int i = 0; i < rangMax; i++)
+                {
+
+                    // Nulérotation des lignes du tableau (rangs)
+                    Console.Write("Rang " + i + " ");
+
+                    // Parcours des collonnes du tableau (places)
+                    for (int j = 0; j < placeMax; j++)
+                    {
+                        // Affichage du status des places ([_] = disponnible / [X] = réservée)
+                        string status_aff = "[_]";
+
+                        if (salle[i, j] != 0)
+                        {
+                            status_aff = "[X]";
+                        }
+                        Console.Write(status_aff);
+                    }
+                    Console.WriteLine();
+
+
+                }
+
+                Console.WriteLine("\n1 - Continuer \n\n2 - Finir \n");
+                continuer = Convert.ToInt16(Console.ReadLine());
+
+            } while (continuer == 1);
 
         }
     }
