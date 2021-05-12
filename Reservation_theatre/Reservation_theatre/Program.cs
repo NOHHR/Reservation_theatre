@@ -37,31 +37,8 @@ namespace Reservation_theatre
             do
             {
                 Accueil();
+                AffichageSalle();
 
-                // Affichage de la salle
-                // Parcours des lignes du tableau
-                for (int i = 0; i < rangMax; i++)
-                {
-
-                    // Nulérotation des lignes du tableau (rangs)
-                    Console.Write("Rang " + i + " ");
-
-                    // Parcours des collonnes du tableau (places)
-                    for (int j = 0; j < placeMax; j++)
-                    {
-                        // Affichage du status des places ([_] = disponnible / [X] = réservée)
-                        string status_aff = "[_]";
-
-                        if (salle[i, j] != 0)
-                        {
-                            status_aff = "[X]";
-                        }
-                        Console.Write(status_aff);
-                    }
-                    Console.WriteLine();
-
-
-                }
 
                 Console.WriteLine("\n1 - Continuer \n\n2 - Finir \n");
                 continuer = Convert.ToInt16(Console.ReadLine());
@@ -70,14 +47,42 @@ namespace Reservation_theatre
 
         }
 
-        // Methode Accueil et refresh console
+        // Méthode Accueil et refresh console
         static void Accueil()
         {
             Console.Clear();
             Console.WriteLine();
             Console.WriteLine("\nBienvenue au thêatre Simlpon. \n");
+            Console.WriteLine("\nLes places marquées [_] sont disponnibles à la reservation. \n");
 
         }
 
+        // Méthode affichage de la salle
+        static void AffichageSalle()
+        {
+            // Parcours des lignes du tableau (rangs)
+            for (int i = 0; i < rangMax; i++)
+            {
+
+                // Nulérotation des rangs
+                Console.Write("Rang " + i + " ");
+
+                // Parcours des collonnes du tableau (places)
+                for (int j = 0; j < placeMax; j++)
+                {
+                    // Affichage du status des places ([_] = disponnible / [X] = réservée)
+                    string status_aff = "[_]";
+
+                    if (salle[i, j] != 0)
+                    {
+                        status_aff = "[X]";
+                    }
+                    Console.Write(status_aff);
+                }
+                Console.WriteLine();
+                
+            }
+
+        }
     }
 }
