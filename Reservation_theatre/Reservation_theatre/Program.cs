@@ -36,8 +36,9 @@ namespace Reservation_theatre
             // Boucle permettant plusieurs saisies
             do
             {
+
                 Accueil();
-                AffichageSalle();
+                Reservation();
                 Poursuivre();
 
 
@@ -48,10 +49,23 @@ namespace Reservation_theatre
         // Méthode Accueil et refresh console
         static void Accueil()
         {
+            // Refresh ; Acceuil ; Legende
             Console.Clear();
             Console.WriteLine();
             Console.WriteLine("\nBienvenue au thêatre Simlpon. \n");
             Console.WriteLine("\nLes places marquées [_] sont disponnibles à la reservation. \n");
+
+            AffichageSalle();
+
+        }
+
+        // Répétition du programme
+        static void Poursuivre()
+        {
+            // Affichage pousuite saisie
+            Console.WriteLine("\n1 - Continuer \n\n2 - Finir \n");
+            continuer = 1;
+            continuer = Convert.ToInt16(Console.ReadLine());
 
         }
 
@@ -61,7 +75,6 @@ namespace Reservation_theatre
             // Parcours des lignes du tableau (rangs)
             for (int i = 0; i < rangMax; i++)
             {
-
                 // Nulérotation des rangs
                 Console.Write("Rang " + i + " ");
 
@@ -83,13 +96,32 @@ namespace Reservation_theatre
 
         }
 
-        // Répétition du programme
-        static void Poursuivre()
+        // Reserver une place
+        static void Reservation()
         {
-            // Affichage pousuite saisie
-            Console.WriteLine("\n1 - Continuer \n\n2 - Finir \n");
-            continuer = Convert.ToInt16(Console.ReadLine());
+            Console.WriteLine("\nQuelle place souhaitez-vous reserver\n");
+
+            // Choix du rang
+            Console.WriteLine("\nSaisissez le rang (de 0 à 7) : \n");
+            int rang = Convert.ToInt16(Console.ReadLine());
+
+            // Choix de la place
+            Console.WriteLine("\nSaisissez la place (de 0 à 8) : \n");
+            int place = Convert.ToInt16(Console.ReadLine());
+
+            if (salle[rang, place] != 1)
+            {
+                // modif status place reservée
+                salle[rang, place] = 1;
+                
+            }
+            else
+            {
+                // Alerte place non disponnible
+                Console.WriteLine("\n\tATTENTION !!! \n\tCette place est déjà réservée merci d'en selectionner une nouvelle. \n");
+            }
 
         }
+        
     }
 }
